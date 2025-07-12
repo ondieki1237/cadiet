@@ -1,0 +1,78 @@
+import React, { useEffect } from 'react';
+import { Navbar } from './components/Navbar';
+import { Hero } from './components/Hero';
+import { FloatingElements } from './components/FloatingElements';
+import { About } from './components/About';
+import { Services } from './components/Services';
+import { Experience } from './components/Experience';
+import { Testimonials } from './components/Testimonials';
+import { Contact } from './components/Contact';
+import { Footer } from './components/Footer';
+
+function App() {
+  useEffect(() => {
+    // Update page title
+    document.title = 'Dickson Cadiet - Personal Trainer & Fitness Coach';
+    
+    // Add smooth scrolling CSS
+    const style = document.createElement('style');
+    style.textContent = `
+      html {
+        scroll-behavior: smooth;
+      }
+      
+      @keyframes fade-in-up {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
+      .animate-fade-in-up {
+        animation: fade-in-up 0.8s ease-out forwards;
+        opacity: 0;
+      }
+      
+      .delay-200 {
+        animation-delay: 0.2s;
+      }
+      
+      .delay-400 {
+        animation-delay: 0.4s;
+      }
+      
+      .delay-600 {
+        animation-delay: 0.6s;
+      }
+      
+      .delay-800 {
+        animation-delay: 0.8s;
+      }
+    `;
+    document.head.appendChild(style);
+    
+    return () => {
+      document.head.removeChild(style);
+    };
+  }, []);
+
+  return (
+    <div className="min-h-screen">
+      <FloatingElements />
+      <Navbar />
+      <Hero />
+      <About />
+      <Services />
+      <Experience />
+      <Testimonials />
+      <Contact />
+      <Footer />
+    </div>
+  );
+}
+
+export default App;
