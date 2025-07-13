@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { ParallaxProvider } from 'react-scroll-parallax';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { FloatingElements } from './components/FloatingElements';
@@ -14,7 +15,7 @@ function App() {
     // Update page title
     document.title = 'Dickson Cadiet - Personal Trainer & Fitness Coach';
     
-    // Add smooth scrolling CSS
+    // Add smooth scrolling and animations CSS
     const style = document.createElement('style');
     style.textContent = `
       html {
@@ -52,26 +53,39 @@ function App() {
       .delay-800 {
         animation-delay: 0.8s;
       }
+
+      /* Prevent horizontal scroll */
+      body {
+        overflow-x: hidden;
+      }
     `;
     document.head.appendChild(style);
     
+    // Cleanup function
     return () => {
       document.head.removeChild(style);
     };
   }, []);
 
   return (
-    <div className="min-h-screen">
-      <FloatingElements />
-      <Navbar />
-      <Hero />
-      <About />
-      <Services />
-      <Experience />
-      <Testimonials />
-      <Contact />
-      <Footer />
-    </div>
+    <ParallaxProvider>
+      <div className="min-h-screen relative overflow-hidden">
+        {/* Background elements */}
+        <FloatingElements />
+        
+        {/* Page content */}
+        <Navbar />
+        <main>
+          <Hero />
+          <About />
+          <Services />
+          <Experience />
+          <Testimonials />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
+    </ParallaxProvider>
   );
 }
 

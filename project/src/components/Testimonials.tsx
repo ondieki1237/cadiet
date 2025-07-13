@@ -6,28 +6,28 @@ export const Testimonials: React.FC = () => {
 
   const testimonials = [
     {
-      name: 'Sarah Johnson',
+      name: 'Sarah Gitau',
       role: 'Marketing Executive',
       content: 'Dickson transformed my relationship with fitness. His personalized approach and constant motivation helped me lose 30 pounds and gain confidence I never thought possible.',
       rating: 5,
       image: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
     },
     {
-      name: 'Mike Rodriguez',
+      name: 'Davind Ochieng',
       role: 'Software Engineer',
       content: 'As someone who was completely new to fitness, Dickson made me feel comfortable and motivated. His expertise in nutrition and training helped me build muscle and improve my overall health.',
       rating: 5,
       image: 'https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
     },
     {
-      name: 'Emma Thompson',
+      name: 'Samuel Gikonyo',
       role: 'Teacher',
       content: 'Working with Dickson has been life-changing. His HIIT programs are challenging but achievable, and his nutritional guidance helped me develop sustainable healthy habits.',
       rating: 5,
       image: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
     },
     {
-      name: 'David Chen',
+      name: 'Mwanaisha Mwangi',
       role: 'Business Owner',
       content: 'Dickson understands the challenges of a busy lifestyle. He created flexible workout routines that fit my schedule and delivered incredible results in just 3 months.',
       rating: 5,

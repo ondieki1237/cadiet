@@ -112,7 +112,8 @@ export const Hero: React.FC = () => {
 
       {/* Feature Pills */}
 {/* Feature Pills */}
-<div className="absolute bottom-24 left-1/2 transform -translate-x-1/2 w-full max-w-4xl px-6">
+{/* Feature Pills */}
+<div className="absolute bottom-8 md:bottom-24 left-1/2 transform -translate-x-1/2 w-full max-w-4xl px-6">
   <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
     {[
       { 
