@@ -66,7 +66,7 @@ export const About: React.FC = () => {
                   Certified Fitness Professional
                 </h3>
                 <p className="text-gray-600 leading-relaxed mb-6 font-light">
-                  With over 5 years of experience in the fitness industry, I've dedicated my career 
+                  With over 18 years of experience in the fitness industry, I've dedicated my career 
                   to helping individuals transform their lives through fitness. My approach combines 
                   scientific training methods with personalized attention to ensure every client 
                   reaches their full potential.

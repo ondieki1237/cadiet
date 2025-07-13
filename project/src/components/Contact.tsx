@@ -251,32 +251,62 @@ export const Contact: React.FC = () => {
                 </div>
               </div>
 
-              <div className="bg-white bg-opacity-90 p-6 sm:p-8 rounded-xl shadow-2xl border-2 border-primary animate-scale-in">
-                <h3 className="text-xl sm:text-2xl font-bold text-primary mb-4 font-ibarra">Follow Me</h3>
-                <div className="flex space-x-4">
-                  <a
-                    href="#"
-                    className="bg-accent text-primary p-3 sm:p-4 rounded-lg transition-all duration-300 transform hover:scale-110 hover:bg-yellow-400"
-                    aria-label="Instagram"
-                  >
-                    <Instagram className="w-6 h-6 sm:w-7 sm:h-7" />
-                  </a>
-                  <a
-                    href="#"
-                    className="bg-accent text-primary p-3 sm:p-4 rounded-lg transition-all duration-300 transform hover:scale-110 hover:bg-yellow-400"
-                    aria-label="Facebook"
-                  >
-                    <Facebook className="w-6 h-6 sm:w-7 sm:h-7" />
-                  </a>
-                  <a
-                    href="#"
-                    className="bg-accent text-primary p-3 sm:p-4 rounded-lg transition-all duration-300 transform hover:scale-110 hover:bg-yellow-400"
-                    aria-label="LinkedIn"
-                  >
-                    <Linkedin className="w-6 h-6 sm:w-7 sm:h-7" />
-                  </a>
-                </div>
-              </div>
+<div className="bg-white bg-opacity-95 p-8 sm:p-10 rounded-2xl shadow-2xl border border-primary animate-scale-in max-w-md mx-auto">
+  <h3 className="text-2xl sm:text-3xl font-bold text-primary mb-6 font-ibarra text-center">Follow Me</h3>
+  <div className="flex justify-center gap-6">
+    <a
+      href="https://www.instagram.com/cadiet_fit_254?igsh=Mmw3Y2dlZXk4NW45"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Instagram"
+      className="group bg-accent p-4 rounded-xl transition-all duration-300 hover:bg-pink-500 hover:shadow-lg"
+    >
+      <Instagram className="w-7 h-7 text-primary group-hover:text-white transition-colors duration-300" />
+    </a>
+    <a
+      href="https://www.facebook.com/share/1A2SiN55NS/"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Facebook"
+      className="group bg-accent p-4 rounded-xl transition-all duration-300 hover:bg-blue-600 hover:shadow-lg"
+    >
+      <Facebook className="w-7 h-7 text-primary group-hover:text-white transition-colors duration-300" />
+    </a>
+    <a
+      href="https://www.tiktok.com/@cadiet1?_t=ZM-8xfe20ZwYly&_r=1"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="TikTok"
+      className="group bg-accent p-4 rounded-xl transition-all duration-300 hover:bg-black hover:shadow-lg"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="w-7 h-7 text-primary group-hover:text-white transition-colors duration-300"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+      >
+        <path d="M12.93 2h2.122a4.986 4.986 0 0 0 4.487 4.487v2.122A7.018 7.018 0 0 1 15.07 6.07V13a5.07 5.07 0 1 1-5.07-5.07h.93v2.026a3.035 3.035 0 1 0 3.035 3.035V2Z" />
+      </svg>
+    </a>
+    <a
+      href="https://youtube.com/@classic254?si=h9ZUw4h7WuusfC4V"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="YouTube"
+      className="group bg-accent p-4 rounded-xl transition-all duration-300 hover:bg-red-600 hover:shadow-lg"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="w-7 h-7 text-primary group-hover:text-white transition-colors duration-300"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+      >
+        <path d="M21.8 8.001a2.752 2.752 0 0 0-1.942-1.942C18.156 6 12 6 12 6s-6.156 0-7.858.059A2.752 2.752 0 0 0 2.2 8.001 28.556 28.556 0 0 0 2 12c0 1.36.064 2.707.2 3.999a2.752 2.752 0 0 0 1.942 1.942C5.844 18 12 18 12 18s6.156 0 7.858-.059a2.752 2.752 0 0 0 1.942-1.942A28.556 28.556 0 0 0 22 12c0-1.36-.064-2.707-.2-3.999ZM10 15.5v-7l6 3.5-6 3.5Z" />
+      </svg>
+    </a>
+  </div>
+</div>
+
 
               <div className="bg-white bg-opacity-90 p-6 sm:p-8 rounded-xl shadow-2xl border-2 border-primary animate-scale-in">
                 <h3 className="text-xl sm:text-2xl font-bold text-primary mb-3 font-ibarra">Free Consultation</h3>
