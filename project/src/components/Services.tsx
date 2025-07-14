@@ -17,7 +17,7 @@ export const Services: React.FC = () => {
       title: 'Personal Training',
       description: 'One-on-one customized workout sessions tailored to your specific goals and fitness level.',
       features: ['Custom workout plans', 'Form correction', 'Progress tracking', 'Goal setting'],
-      image: '/public/images/personal.jpg', // Replace with dynamic import if needed
+      image: '/public/images/personal.png', // Replace with dynamic import if needed
     },
     {
       title: 'Group Training',
@@ -35,7 +35,7 @@ export const Services: React.FC = () => {
       title: 'HIIT Programs',
       description: 'High-Intensity Interval Training programs designed for maximum fat burn and conditioning.',
       features: ['Time-efficient', 'Cardio & strength', 'Metabolic boost', 'Results-focused'],
-      image: '/public/images/6.jpg',
+      image: '/public/images/hit (2).png',
     },
   ];
 
