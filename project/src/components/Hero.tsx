@@ -47,7 +47,10 @@ export const Hero: React.FC = () => {
                 Get Started
               </button>
               
-              <button className="flex items-center space-x-2 text-primary hover:text-accent transition-all duration-300 group">
+              <button 
+                onClick={() => window.open('https://www.youtube.com/@classic254', '_blank')}
+                className="flex items-center space-x-2 text-primary hover:text-accent transition-all duration-300 group"
+              >
                 <div className="bg-primary bg-opacity-10 p-3 rounded-full group-hover:bg-accent group-hover:bg-opacity-20 transition-all duration-300">
                   <Play className="w-5 h-5 fill-current" />
                 </div>
@@ -90,8 +93,6 @@ export const Hero: React.FC = () => {
           <div className="relative animate-slide-in-right">
             <div className="relative">
               {/* Main Hero Image */}
-{/* Main Hero Image */}
-{/* Main Hero Image */}
 <div className="relative z-10">
   <img 
     src="/images/hero1.png" 

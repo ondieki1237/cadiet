@@ -9,6 +9,7 @@ import { Experience } from './components/Experience';
 import { Testimonials } from './components/Testimonials';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
+import { TikTokVideos } from './components/tiktok';
 
 function App() {
   useEffect(() => {
@@ -80,6 +81,7 @@ function App() {
           <About />
           <Services />
           <Experience />
+          {/* <TikTokVideos /> */}
           <Testimonials />
           <Contact />
         </main>
