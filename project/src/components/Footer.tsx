@@ -107,14 +107,14 @@ export const Footer: React.FC = () => {
                 />
               </div>
               <p className="text-gray-700 text-xs sm:text-sm font-glacial">
-                Built by{' '}
+                Built and managed by{' '}
                 <a
                   href="https://ondieki1237.github.io/sethbellarin/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-emerald-600 hover:underline transition-all duration-300"
                 >
-                  Seth Ondieki
+                  Seth Bellarin
                 </a>
               </p>
             </div>
