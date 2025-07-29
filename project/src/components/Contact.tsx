@@ -26,10 +26,7 @@ export const Contact: React.FC = () => {
   });
 
   const [modalOpen, setModalOpen] = useState(false);
-  const [formStatus, setFormStatus] = useState<{ message: string; type: 'success' | 'error' | '' }>({
-    message: '',
-    type: '',
-  });
+  const [showPopup, setShowPopup] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -44,67 +41,69 @@ export const Contact: React.FC = () => {
     e.preventDefault();
     emailjs
       .send(
-        'service_jmez3tj', // Service ID         
-        'template_ssvce75',// Contact Form Template ID
+        'service_jmez3tj', // Service ID
+        'template_ssvce75', // Contact Form Template ID
         formData,
         '45hUX7g2oB0d27x7_' // Your EmailJS Public Key
       )
       .then(
         () => {
-          setFormStatus({ message: 'Message sent successfully!', type: 'success' });
+          setShowPopup({ message: 'Message sent successfully!', type: 'success' });
           setFormData({ name: '', email: '', phone: '', message: '' });
-          setTimeout(() => setFormStatus({ message: '', type: '' }), 5000);
+          setTimeout(() => setShowPopup(null), 5000); // Hide popup after 5 seconds
         },
         (error) => {
-          setFormStatus({ message: `Failed to send message: ${error.text}`, type: 'error' });
+          setShowPopup({ message: `Failed to send message: ${error.text}`, type: 'error' });
+          setTimeout(() => setShowPopup(null), 5000);
         }
       );
   };
 
-const handleBookingSubmit = (e: React.FormEvent) => {
-  e.preventDefault();
-  
-  // Add timestamp to booking data
-  const bookingDataWithTimestamp = {
-    ...bookingData,
-    timestamp: new Date().toISOString(),
-    bookingId: `CAD-${Math.floor(Math.random() * 10000)}`, // Generate a simple booking ID
-    location: "Gilgil, Kenya", // Static location
-    version: "1.0.0" // Static version
-  };
+  const handleBookingSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
 
-  emailjs
-    .send(
-      'service_jmez3tj', // Service ID
-      'template_lb22b6h', // Booking Form Template ID
-      bookingDataWithTimestamp,
-      '45hUX7g2oB0d27x7_' // Your EmailJS Public Key
-    )
-    .then(
-      () => {
-        setFormStatus({ message: 'Booking request sent successfully!', type: 'success' });
-        setBookingData({ 
-          name: '', 
-          email: '', 
-          phone: '', 
-          message: '', 
-          date: '', 
-          timeSlot: '', 
-          package: '' 
-        });
-        setModalOpen(false);
-        setTimeout(() => setFormStatus({ message: '', type: '' }), 5000);
-      },
-      (error) => {
-        setFormStatus({ message: `Failed to send booking: ${error.text}`, type: 'error' });
-      }
-    );
-};
+    // Add timestamp to booking data
+    const bookingDataWithTimestamp = {
+      ...bookingData,
+      timestamp: new Date().toISOString(),
+      bookingId: `CAD-${Math.floor(Math.random() * 10000)}`, // Generate a simple booking ID
+      location: 'Gilgil, Kenya', // Static location
+      version: '1.0.0', // Static version
+    };
+
+    emailjs
+      .send(
+        'service_jmez3tj', // Service ID
+        'template_lb22b6h', // Booking Form Template ID
+        bookingDataWithTimestamp,
+        '45hUX7g2oB0d27x7_' // Your EmailJS Public Key
+      )
+      .then(
+        () => {
+          setShowPopup({ message: 'Booking request sent successfully!', type: 'success' });
+          setBookingData({
+            name: '',
+            email: '',
+            phone: '',
+            message: '',
+            date: '',
+            timeSlot: '',
+            package: '',
+          });
+          setModalOpen(false);
+          setTimeout(() => setShowPopup(null), 5000);
+        },
+        (error) => {
+          setShowPopup({ message: `Failed to send booking: ${error.text}`, type: 'error' });
+          setTimeout(() => setShowPopup(null), 5000);
+        }
+      );
+  };
 
   const openModal = () => setModalOpen(true);
   const closeModal = () => {
     setModalOpen(false);
-    setFormStatus({ message: '', type: '' });
+    setShowPopup(null);
   };
 
   // Sample time slots (based on availability: Mon-Fri 6AM-8PM, Sat-Sun 8AM-6PM)
@@ -133,6 +132,26 @@ const handleBookingSubmit = (e: React.FormEvent) => {
         />
       </div>
 
+      {/* Floating Pop-up Notification */}
+      {showPopup && (
+        <div
+          className={`fixed top-4 right-4 max-w-sm w-full p-4 rounded-lg shadow-lg z-50 animate-slide-in transition-all duration-300 ${
+            showPopup.type === 'success' ? 'bg-green-500 text-white' : 'bg-red-500 text-white'
+          }`}
+        >
+          <div className="flex items-center">
+            <span className="font-glacial text-sm sm:text-base">{showPopup.message}</span>
+            <button
+              onClick={() => setShowPopup(null)}
+              className="ml-auto text-white hover:text-gray-200 transition-colors"
+              aria-label="Close notification"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
+        </div>
+      )}
+
       <div className="container mx-auto px-4 sm:px-6 md:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12 sm:mb-16">
@@ -144,17 +163,6 @@ const handleBookingSubmit = (e: React.FormEvent) => {
               Ready to take the first step towards a healthier, stronger you? Let's discuss your fitness goals and create a personalized plan.
             </p>
           </div>
-
-          {/* Form Status Message */}
-          {formStatus.message && (
-            <div
-              className={`mb-6 p-4 rounded-lg text-center font-glacial text-sm sm:text-base ${
-                formStatus.type === 'success' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
-              }`}
-            >
-              {formStatus.message}
-            </div>
-          )}
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
             {/* Contact Form */}

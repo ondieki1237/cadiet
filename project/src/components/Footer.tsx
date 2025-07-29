@@ -21,15 +21,16 @@ export const Footer: React.FC = () => {
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23035A52' fill-opacity='0.2'%3E%3Cpath d='M30 10c-11 0-20 9-20 20s9 20 20 20 20-9 20-20-9-20-20-20zm0 36c-8.8 0-16-7.2-16-16s7.2-16 16-16 16 7.2 16 16-7.2 16-16 16z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23035A52' fill-opacity='0.2'%3E%3Cpath d='M30 10c-11 0-20 9-20 20s9 20 20 20 20-9 20-20-9-20-20-20zm0 36c-8.8 0-16-7.2-16-16s7.2-16 16-16 16 7.2 16 16-7.2 16-16 16z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")",
           }}
         />
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 md:px-8">
         <div className="max-w-6xl mx-auto p-6 sm:p-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-            <div>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 mb-8">
+            {/* First column - Brand info (full width on mobile, first column on tablet+) */}
+            <div className="col-span-2 md:col-span-1">
               <div className="flex items-center space-x-2 mb-4">
                 <Dumbbell className="w-8 h-8 text-emerald-600" />
                 <span className="text-xl sm:text-2xl font-bold text-primary font-ibarra">Dickson Cadiet</span>
@@ -45,6 +46,7 @@ export const Footer: React.FC = () => {
               </div>
             </div>
 
+            {/* Second column - Quick Links (first column on mobile, second column on tablet+) */}
             <div>
               <h4 className="text-lg sm:text-xl font-bold text-primary mb-4 font-ibarra border-b border-primary border-opacity-20 pb-2">
                 Quick Links
@@ -65,6 +67,7 @@ export const Footer: React.FC = () => {
               </ul>
             </div>
 
+            {/* Third column - Services (second column on mobile, third column on tablet+) */}
             <div>
               <h4 className="text-lg sm:text-xl font-bold text-primary mb-4 font-ibarra border-b border-primary border-opacity-20 pb-2">
                 Services

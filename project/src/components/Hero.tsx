@@ -42,12 +42,12 @@ export const Hero: React.FC = () => {
 
             {/* CTA Button */}
             <div className="flex items-center space-x-4">
-              <button
-                onClick={scrollToAbout}
-                className="bg-accent text-primary px-8 py-4 rounded-full text-xl font-semibold hover:bg-yellow-400 transition-all duration-300 transform hover:scale-105 shadow-lg"
-              >
-                Get Started
-              </button>
+<button
+  onClick={scrollToAbout}
+  className="bg-accent text-primary px-4 py-2 text-base sm:px-8 sm:py-4 sm:text-xl font-semibold hover:bg-yellow-400 transition-all duration-300 transform hover:scale-105 shadow-lg rounded-full"
+>
+  Get Started
+</button>
               <button
                 onClick={() => window.open('https://www.youtube.com/@classic254', '_blank')}
                 className="flex items-center space-x-2 text-primary hover:text-accent transition-all duration-300 group"

@@ -4,7 +4,7 @@ import { Play, ChevronLeft, ChevronRight } from 'lucide-react';
 export const TestimonialVideos: React.FC = () => {
   // State to track which videos are playing
   const [playing, setPlaying] = useState<{ [key: number]: boolean }>({ 0: false, 1: false, 2: false });
-  const [currentIndex, setCurrentIndex] = useState(2); // Start at Getrude’s index for mobile
+  const [currentIndex, setCurrentIndex] = useState(0); // Start at Getrude’s index (0) for mobile
   const carouselRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -42,21 +42,20 @@ export const TestimonialVideos: React.FC = () => {
     }
   };
 
-  // Auto-play Getrude's video (index 2) when section is in view
+  // Auto-play Getrude's video (index 0) when section is in view on mobile
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
+          if (entry.isIntersecting && window.innerWidth < 640) {
             const getrudeVideo = document.querySelector(`video[aria-label="Testimonial video by Getrude"]`) as HTMLVideoElement;
-            if (getrudeVideo && !playing[2]) {
+            if (getrudeVideo && !playing[0]) {
               getrudeVideo.muted = true;
               getrudeVideo.play().catch((error) => {
                 console.error('Auto-play failed:', error);
               });
-              setPlaying((prev) => ({ ...prev, 2: true }));
-              // Scroll to Getrude’s video on mobile
-              setCurrentIndex(2);
+              setPlaying((prev) => ({ ...prev, 0: true }));
+              setCurrentIndex(0); // Ensure Getrude's video is first on mobile
             }
           }
         });
@@ -160,7 +159,7 @@ export const TestimonialVideos: React.FC = () => {
                       className="w-full h-full object-cover"
                       poster={video.thumbnail}
                       controls={playing[index]}
-                      muted={index === 2}
+                      muted={index === 0}
                       onClick={(e) => togglePlay(index, e.currentTarget)}
                       aria-label={`Testimonial video by ${video.name}`}
                     >

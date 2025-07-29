@@ -17,25 +17,25 @@ export const Services: React.FC = () => {
       title: 'Personal Training',
       description: 'One-on-one customized workout sessions tailored to your specific goals and fitness level.',
       features: ['Custom workout plans', 'Form correction', 'Progress tracking', 'Goal setting'],
-      image: '/public/images/personal.png', // Replace with dynamic import if needed
+      image: '/images/personal.png', // Fixed: Removed /public
     },
     {
       title: 'Group Training',
       description: 'High-energy group sessions that combine motivation, fun, and effective workouts.',
       features: ['Team motivation', 'Cost-effective', 'Social support', 'Varied workouts'],
-      image: '/public/images/group.jpg',
+      image: '/images/group.jpg', // Fixed: Removed /public
     },
     {
       title: 'Nutrition Coaching',
       description: 'Comprehensive nutrition guidance to complement your fitness journey and maximize results.',
       features: ['Meal planning', 'Macro tracking', 'Supplement advice', 'Lifestyle coaching'],
-      image: '/public/images/diet.jpg',
+      image: '/images/diet.jpg', // Fixed: Removed /public
     },
     {
       title: 'HIIT Programs',
       description: 'High-Intensity Interval Training programs designed for maximum fat burn and conditioning.',
       features: ['Time-efficient', 'Cardio & strength', 'Metabolic boost', 'Results-focused'],
-      image: '/public/images/hit (2).png',
+      image: '/images/hit (2).png', // Fixed: Removed /public
     },
   ];
 
@@ -60,14 +60,13 @@ export const Services: React.FC = () => {
       <div className="container mx-auto px-4 sm:px-6 md:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12 sm:mb-16">
-<h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#035a52] mb-6 font-ibarra relative">
-  Training Services
-  <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-20 sm:w-24 h-1 bg-accent animate-pulse-glow" />
-</h2>
-<p className="text-lg sm:text-xl text-[#035a52] max-w-3xl mx-auto font-glacial">
-  Discover fitness solutions crafted to spark your transformation, from beginner to elite.
-</p>
-
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#035a52] mb-6 font-ibarra relative">
+              Training Services
+              <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-20 sm:w-24 h-1 bg-accent animate-pulse-glow" />
+            </h2>
+            <p className="text-lg sm:text-xl text-[#035a52] max-w-3xl mx-auto font-glacial">
+              Discover fitness solutions crafted to spark your transformation, from beginner to elite.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
@@ -95,7 +94,7 @@ export const Services: React.FC = () => {
                         alt={service.title}
                         className="w-full h-full object-cover"
                         loading="lazy"
-                        onError={(e) => (e.currentTarget.src = '/public/images/fallback.jpg')}
+                        onError={(e) => (e.currentTarget.src = '/images/fallback.png')} // Updated fallback path
                       />
                       <div className="absolute inset-0 gradient-overlay" />
                     </div>
