@@ -6,5 +6,6 @@ export default defineConfig({
   plugins: [react()],
   optimizeDeps: {
     exclude: ['lucide-react'],
+    base: process.env.VITE_BASE_PATH || '/cadiet', // Base path for GitHub Pages
   },
 });
