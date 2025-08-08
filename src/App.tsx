@@ -69,8 +69,8 @@ function App() {
   // Detect if running in local dev or production (GitHub Pages)
   const basename =
     import.meta.env.MODE === 'development'
-      ? '/' // local dev
-      : '/cadiet/project'; // GitHub Pages path
+      ? '/'
+      : '/cadiet'; 
 
   return (
     <ParallaxProvider>
