@@ -1,6 +1,6 @@
 import React from 'react';
 import { Parallax } from 'react-scroll-parallax';
-import { Calendar, MapPin, Award } from 'lucide-react';
+import { Calendar, MapPin, Award, Download } from 'lucide-react';
 
 export const Experience: React.FC = () => {
   const experiences = [
@@ -26,17 +26,19 @@ export const Experience: React.FC = () => {
     'Functional Movement Specialist Certification'
   ];
 
+  const documents = [
+    {
+      name: 'Driving License',
+      file: '/path/to/Dickson_driving.pdf', // Update with the actual path
+    },
+    {
+      name: 'Gym Instructor CV',
+      file: '/path/to/Dickson_Cadiet_Gym_Instructor_CV.pdf', // Update with the actual path
+    }
+  ];
+
   return (
     <section id="experience" className="min-h-screen bg-cream relative overflow-x-hidden py-12 sm:py-16 md:py-20">
-      {/* Background Pattern with Parallax */}
-      <Parallax speed={-10}>
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23035A52' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-          }} />
-        </div>
-      </Parallax>
-
       <div className="container mx-auto px-4 sm:px-6 md:px-8">
         <div className="max-w-6xl mx-auto">
           {/* Title with Parallax */}
@@ -50,9 +52,9 @@ export const Experience: React.FC = () => {
           </Parallax>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
-            {/* Experience Timeline with Parallax */}
-            <Parallax speed={-5}>
-              <div>
+            {/* Experience Timeline and Download Buttons */}
+            <div>
+              <Parallax speed={-5}>
                 <h3 className="text-xl sm:text-2xl font-bold text-primary mb-8 flex items-center font-ibarra">
                   <Calendar className="w-6 h-6 sm:w-7 sm:h-7 text-accent mr-2" />
                   Professional Experience
@@ -84,8 +86,26 @@ export const Experience: React.FC = () => {
                     </div>
                   ))}
                 </div>
+              </Parallax>
+
+              {/* Download Buttons (No Parallax, No Overlapping Layers) */}
+              <div className="mt-8 bg-white bg-opacity-90 p-6 sm:p-8 rounded-xl shadow-2xl border-2 border-primary animate-scale-in relative z-10">
+                <h4 className="text-lg sm:text-xl font-bold text-primary mb-4 font-ibarra">Download Documents</h4>
+                <div className="grid gap-4">
+                  {documents.map((doc, index) => (
+                    <a
+                      key={index}
+                      href={doc.file}
+                      download
+                      className="flex items-center justify-center bg-primary text-white py-2 px-4 rounded-lg shadow-md hover:bg-accent transition-all duration-300 transform hover:scale-105 font-glacial text-sm sm:text-base"
+                    >
+                      <Download className="w-5 h-5 mr-2" />
+                      Download {doc.name}
+                    </a>
+                  ))}
+                </div>
               </div>
-            </Parallax>
+            </div>
 
             {/* Certifications with Parallax */}
             <Parallax speed={5}>

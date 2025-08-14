@@ -70,7 +70,7 @@ function App() {
   const basename =
     import.meta.env.MODE === 'development'
       ? '/'
-      : '/'; 
+      : '/cadiet'; 
 
   return (
     <ParallaxProvider>
