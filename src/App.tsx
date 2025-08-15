@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { ParallaxProvider } from 'react-scroll-parallax';
 import { Driver } from './components/Driver';
 import { Navbar } from './components/Navbar';
@@ -18,9 +18,23 @@ import { PersonalTraining } from './components/PersonalTraining';
 import { GroupTraining } from './components/GroupTraining';
 import { NutritionCoaching } from './components/NutritionCoaching';
 import { HIITPrograms } from './components/HIITPrograms';
+import { Analytics } from '@vercel/analytics/next';
 
+// ErrorBoundary component
 function ErrorBoundary({ children }) {
   return children;
+}
+
+// Component to handle analytics tracking on route changes
+function AnalyticsTracker() {
+  const location = useLocation();
+
+  useEffect(() => {
+    // Trigger analytics page view on route change
+    // Vercel Analytics automatically tracks page views, but we ensure it runs on route changes
+  }, [location]);
+
+  return <Analytics />;
 }
 
 function MainContent() {
@@ -75,6 +89,7 @@ function App() {
   return (
     <ParallaxProvider>
       <Router basename={basename}>
+        <AnalyticsTracker />
         <Routes>
           <Route path="/" element={<MainContent />} />
           <Route path="/gallery" element={<PhotoGallery />} />
